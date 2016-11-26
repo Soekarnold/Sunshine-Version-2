@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,6 +38,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +68,20 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Log.d(TAG, "Setting");
+            return true;
+
+        } else if (id == R.id.action_refresh) {
+            Log.d(TAG, "Refresh");
+            return true;
+
+        } else if (id == R.id.action_profile_agent) {
+            Log.d(TAG, "Profile");
             return true;
         }
-
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class ForecastFragment extends Fragment {
-
 
     }
+
+
 }
